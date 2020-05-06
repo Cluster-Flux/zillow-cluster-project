@@ -13,11 +13,6 @@ def split_data(df):
 
 
 #--------------- Scaling ---------------#
-def numeric_to_object(df, features):    
-    for col in features:
-        df[col] = df[col].astype('object')
-    
-    return df
 
 def scale_data(df):
     from sklearn.preprocessing import MinMaxScaler
