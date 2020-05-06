@@ -95,7 +95,7 @@ def fill_nulls_with_mode(df):
 def wrangle_zillow(df):
     # Handling columns and rows with too much missing values
     df = handle_missing_values(df)
-    w
+    
     # Dropping features
     df = drop_columns(df)
     
@@ -123,14 +123,9 @@ def split_data(df):
 
 
 #--------------- Scaling ---------------#
-def numeric_to_object(df):
-    features = ['fips', 
-                'regionidcity', 
-                'regionidcounty', 
-                'regionidzip']
-    
+def numeric_to_object(df, features):    
     for col in features:
-    df[col] = df[col].astype('object')
+        df[col] = df[col].astype('object')
     
     return df
 
