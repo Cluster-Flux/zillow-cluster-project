@@ -95,7 +95,7 @@ def fill_nulls_with_mode(df):
 def wrangle_zillow(df):
     # Handling columns and rows with too much missing values
     df = handle_missing_values(df)
-    
+    w
     # Dropping features
     df = drop_columns(df)
     
