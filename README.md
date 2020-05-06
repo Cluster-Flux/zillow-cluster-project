@@ -1,4 +1,4 @@
-## Zestifying Zillows Zestimates
+# Zestifying Zillows Zestimates
 
 Authors: Nick Joseph, Shay Altshue
 
@@ -14,6 +14,14 @@ Can we improve Zillow's ability to predict property values by identifying when Z
 ------------
 * Explore the data to identify areas where feature engineering can improve model accuracy
 * Utilize clustering within the data to calclulate log error
+
+## Steps for Replicating Project
+This project requires a env.py within the `src` directory. This env.py requires the following:
+host = ""
+user = ""
+password = ""
+
+* Note: fill in the blank strings with your specific mySQL information
 
 ## Project Organization 
 ------------
