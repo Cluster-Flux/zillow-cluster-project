@@ -41,10 +41,25 @@ def handle_missing_values(df, prop_required_column = .5, prop_required_row = .75
     Drops rows by a percentage of missing values,
     drops columns by a percentage of missing values.
     '''
+    # Saving the shape to calculate number of features/rows dropped
+    shape_before = df.shape
+    
+    # Using the threshold to drop the features
     threshold = int(round(prop_required_column*len(df.index),0))
     df.dropna(axis=1, thresh=threshold, inplace=True)
+    
+    # Using the threshold to drop the rows
     threshold = int(round(prop_required_row*len(df.columns),0))
     df.dropna(axis=0, thresh=threshold, inplace=True)
+    
+    # Saving the shape to calculate number of features/rows dropped
+    shape_after = df.shape
+    
+    print(f'''
+    Number of rows dropped:    {shape_before[0] - shape_after[0]}
+    Number of columns dropped: {shape_before[1] - shape_after[1]}
+    ''')
+
     return df
 
 def drop_columns(df):
@@ -61,7 +76,7 @@ def drop_columns(df):
     return df
 
 
-def fill_with_median(df):
+def fill_nulls_with_median(df):
     features = ['taxvaluedollarcnt',
                 'calculatedfinishedsquarefeet',
                 'taxamount',
