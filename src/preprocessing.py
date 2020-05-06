@@ -13,7 +13,6 @@ def split_data(df):
 
 
 #--------------- Scaling ---------------#
-
 def scale_data(df):
     from sklearn.preprocessing import MinMaxScaler
 
