@@ -43,7 +43,7 @@ def handle_missing_values(df, prop_required_column = .5, prop_required_row = .75
     '''
     # Saving the shape to calculate number of features/rows dropped
     shape_before = df.shape
-    
+
     # Using the threshold to drop the features
     threshold = int(round(prop_required_column*len(df.index),0))
     df.dropna(axis=1, thresh=threshold, inplace=True)
@@ -74,40 +74,17 @@ def drop_columns(df):
             ], inplace=True)
     
     return df
-
-
-def fill_nulls_with_median(df):
-    features = ['taxvaluedollarcnt',
-                'calculatedfinishedsquarefeet',
-                'taxamount',
-                'fullbathcnt',
-                'lotsizesquarefeet',
-                'structuretaxvaluedollarcnt',
-                'finishedsquarefeet12']
     
-    for f in features:
-        df[f] = df[f].fillna(df[f].median)
-        
-    return df
-
-
-def fill_nulls_with_mode(df):
-    features = ['regionidzip',
-                'regionidcity',
-                'yearbuilt',
-                'landtaxvaluedollarcnt']
-    
-    for f in features:
-        df[f] = df[f].fillna(df[f].mode)
-        
-    return df
-    
-
 ################################
 #  Tools for Handling Dtypes   #
 ################################
 
 def numeric_to_object(df, features):    
+    features = ['fips', 
+                'regionidcity', 
+                'regionidcounty', 
+                'regionidzip']
+    
     for col in features:
         df[col] = df[col].astype('object')
     
