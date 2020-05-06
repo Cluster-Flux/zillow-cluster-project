@@ -87,6 +87,23 @@ def fill_nulls_with_mode(df):
         
     return df
     
+
+################################
+#  Tools for Handling Dtypes   #
+################################
+
+def numeric_to_object(df, features):    
+    for col in features:
+        df[col] = df[col].astype('object')
+    
+    return df
+
+
+def object_to_numeric(df, features):    
+    for col in features:
+        df[col] = df[col].astype('float')
+    
+    return df
     
 ####################
 #   Main Function  #
