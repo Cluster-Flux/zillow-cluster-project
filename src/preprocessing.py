@@ -13,33 +13,6 @@ def split_data(df):
 
 
 #--------------- Scaling ---------------#
-def fill_nulls_with_median(df):
-    features = ['taxvaluedollarcnt',
-                'calculatedfinishedsquarefeet',
-                'taxamount',
-                'fullbathcnt',
-                'lotsizesquarefeet',
-                'structuretaxvaluedollarcnt',
-                'finishedsquarefeet12']
-    
-    for f in features:
-        df[f] = df[f].fillna(df[f].median)
-        
-    return df
-
-
-def fill_nulls_with_mode(df):
-    features = ['regionidzip',
-                'regionidcity',
-                'yearbuilt',
-                'landtaxvaluedollarcnt']
-    
-    for f in features:
-        df[f] = df[f].fillna(df[f].mode)
-        
-    return df
-
-
 def scale_data(df):
     from sklearn.preprocessing import MinMaxScaler
 
