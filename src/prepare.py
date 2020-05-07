@@ -71,7 +71,9 @@ def drop_columns(df):
             'propertycountylandusecode', # We're already filtering for single unit residential
             'propertyzoningdesc',        # Doesn't provide anything useful, missing too many values
             'censustractandblock',       # Doesn't provide anything useful, missing too many values
-            ], inplace=True)
+            ], 
+            axis=1,
+            inplace=True)
     
     return df
 
