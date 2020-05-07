@@ -48,7 +48,7 @@ def get_zillow_data():
     Returns a DF cotaining the zillow data pulled from mySQL
     '''
     if isfile('data/raw/zillow_unprocessed.csv'):
-        df = query_sql()
+        df = pd.read_csv('data/raw/zillow_unprocessed.csv')
         print('CSV previously generated at `data/raw/zillow_unprocessed.csv`. Reading in that csv as a DataFrame')
     else:
         df = query_sql()
