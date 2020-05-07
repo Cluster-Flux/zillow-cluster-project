@@ -74,12 +74,39 @@ def drop_columns(df):
             ], inplace=True)
     
     return df
+
+def fill_nulls_with_median(df):
+    features = ['taxvaluedollarcnt',
+                'calculatedfinishedsquarefeet',
+                'taxamount',
+                'fullbathcnt',
+                'lotsizesquarefeet',
+                'structuretaxvaluedollarcnt',
+                'finishedsquarefeet12']
+    
+    for f in features:
+        df[f] = df[f].fillna(df[f].median)
+        
+    return df
+
+
+def fill_nulls_with_mode(df):
+    features = ['regionidzip',
+                'regionidcity',
+                'yearbuilt',
+                'landtaxvaluedollarcnt']
+    
+    for f in features:
+        df[f] = df[f].fillna(df[f].mode)
+        
+    return df
+
     
 ################################
 #  Tools for Handling Dtypes   #
 ################################
 
-def numeric_to_object(df, features):    
+def numeric_to_object(df):    
     features = ['fips', 
                 'regionidcity', 
                 'regionidcounty', 
@@ -109,7 +136,7 @@ def wrangle_zillow(df):
     df = drop_columns(df)
     
     # Handling missing values by filling with the median 
-    df = fill_with_median(df)
+    df = fill_nulls_with_median(df)
     
     # Handling missing values by filling with the mode
     df = fill_nulls_with_mode(df)
