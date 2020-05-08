@@ -113,7 +113,9 @@ def numeric_to_object(df):
     features = ['fips', 
                 'regionidcity', 
                 'regionidcounty', 
-                'regionidzip']
+                'regionidzip',
+                'latitude',
+                'longitude']
     
     for col in features:
         df[col] = df[col].astype('object')
