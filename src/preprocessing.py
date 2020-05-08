@@ -26,9 +26,9 @@ def scale_data(df):
 #          Main Function            # 
 #####################################
 
-def split_scale_dataframes(train, test, validate):
-    for df in [train, test, validate]:
-        df.apply(split_data())
-        df.apply(scale_data())
+def split_scale_data(df):
+    train, test, validate = split_data(df)
+    for dataframe in [train, test, validate]:
+            dataframe = scale_data(dataframe)
         
     return train, test, validate
