@@ -64,6 +64,7 @@ def handle_missing_values(df, prop_required_column = .5, prop_required_row = .75
 
 def drop_columns(df):
     df.drop(columns=[
+            'Unnamed: 0',                # Remenant of reading the data from csv
             'buildingqualitytypeid',     # Used to merge in SQL 
             'heatingorsystemtypeid',     # Used to merge in SQL
             'propertylandusetypeid',     # Used to merge in SQL
@@ -87,7 +88,7 @@ def fill_nulls_with_median(df):
                 'finishedsquarefeet12']
     
     for f in features:
-        df[f] = df[f].fillna(df[f].median)
+        df[f] = df[f].fillna(df[f].median())
         
     return df
 
@@ -99,7 +100,7 @@ def fill_nulls_with_mode(df):
                 'landtaxvaluedollarcnt']
     
     for f in features:
-        df[f] = df[f].fillna(df[f].mode)
+        df[f] = df[f].fillna(df[f].mode())
         
     return df
 
